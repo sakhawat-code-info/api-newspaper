@@ -11,10 +11,15 @@ const loadNavbarCatagory = async () => {
     navCat.forEach(element => {
 
         const li = document.createElement('li');
-        li.onclick = () => loadNews(element.category_id);
-        li.classList.add("m-7")
-        li.innerText = element.category_name;
-        // li.innerHTML = `<a><button onclick="loadNews('${element.category_id}')">${element.category_name}</button></a>`;
+
+        //                                                      v.v.i code 
+
+        // li.onclick = () => loadNews(element.category_id);
+        // li.classList.add("m-7")
+        // li.innerText = element.category_name;
+
+
+        li.innerHTML = `<a><button onclick="loadNews('${element.category_id}')">${element.category_name}</button></a>`;
         // console.log(element.category_id);
         // button.innerText = element.category_name;
         // li.appendChild(button);
