@@ -1,8 +1,4 @@
 
-
-
-
-
 const loadNavbarCatagory = async () => {
     const res = await fetch('https://openapi.programming-hero.com/api/news/categories');
     const data = await res.json();
@@ -15,7 +11,10 @@ const loadNavbarCatagory = async () => {
     navCat.forEach(element => {
 
         const li = document.createElement('li');
-        li.innerHTML = `<a><button onclick="loadNews('${element.category_id}')">${element.category_name}</button></a>`;
+        li.onclick = () => loadNews(element.category_id);
+        li.classList.add("m-7")
+        li.innerText = element.category_name;
+        // li.innerHTML = `<a><button onclick="loadNews('${element.category_id}')">${element.category_name}</button></a>`;
         // console.log(element.category_id);
         // button.innerText = element.category_name;
         // li.appendChild(button);
@@ -25,9 +24,7 @@ const loadNavbarCatagory = async () => {
     });
 
 
-
 }
-
 
 
 
