@@ -42,7 +42,7 @@ const loadNews = async (category_id) => {
     newsContainer.innerHTML = '';
 
     data.data.forEach(element => {
-
+        // console.log();
         const div = document.createElement('div');
         div.innerHTML = `
             <div class="hero bg-base-200">
@@ -52,7 +52,7 @@ const loadNews = async (category_id) => {
                 <div>
                     <h1 class="text-3xl font-bold">${element.title}</h1>
                     <p class="py-6">${element.details.slice(0, 200)}</p>
-                    <button class="btn btn-primary">View Details</button>
+                    <button onclick="handleViewMore('${element._id}')" class="btn btn-primary">View Details</button>
                 </div>
             </div>
             </div>
@@ -62,6 +62,34 @@ const loadNews = async (category_id) => {
     });
 
 }
+
+
+const handleViewMore = async (detailsId) => {
+
+    // console.log(detailsId);
+    const res = await fetch(`https://openapi.programming-hero.com/api/news/${detailsId}`);
+    const data = await res.json();
+
+    // console.log();
+
+    const modalContainer = document.getElementById('modalContainer');
+    modalContainer.innerHTML = "";
+    const div = document.createElement('div');
+    div.innerHTML = `
+        <h3 class="font-bold text-lg">${data.data[0].title}</h3>
+        <p class="py-4">${data.data[0].details}</p>
+    `
+    modalContainer.appendChild(div);
+
+
+    showDetailsByModal.showModal();
+
+
+
+}
+
+
+
 
 
 

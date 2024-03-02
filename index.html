@@ -19,8 +19,8 @@
                 extend: {
                     colors: {
                         clifford: '#da373d',
-                        'primaryColor': '#1DD100',
-                        'primary-text-color': '#131318',
+                        'bgColor': '#1DD100',
+                        'textColor': '#131318',
                         'input-bg': '#F8F8F8',
                     }
                 }
@@ -75,7 +75,28 @@
 
 
 
+    <!-- Open the modal using ID.showModal() method -->
+    <!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
+    <dialog id="showDetailsByModal" class="modal">
+        <div class="modal-box">
 
+            <div id="modalContainer">
+
+            </div>
+
+
+
+
+
+
+            <div class="modal-action">
+                <form method="dialog">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn">Close</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
 
 
 
